@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1f46">
+  <meta name="description" content="Website CV digital Sasti Rizki Awalia — Mahasiswa Sistem Informasi dan pramuniaga.">
+  <title>E-CV | Sasti Rizki Awalia</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root{--navy:#0b1f46;--navy2:#122e60;--blue:#4b8fe8;--sky:#dff0ff;--pale:#f4f9ff;--ink:#182b49;--muted:#71819a;--line:#e4edf7;--white:#fff;--shadow:0 22px 60px rgba(24,65,119,.10)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:28px}
+body{margin:0;background:#f5f9fe;color:var(--ink);font-family:'DM Sans',sans-serif;line-height:1.65}
+a{color:inherit;text-decoration:none}
+.page-shell{min-height:100vh}
+.sidebar{position:fixed;inset:0 auto 0 0;width:286px;padding:30px 26px 24px;background:var(--navy);color:white;display:flex;flex-direction:column;z-index:20;overflow-y:auto}
+.brand-mark{width:48px;height:48px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.24);border-radius:15px;font-family:Manrope,sans-serif;font-weight:800;letter-spacing:-1px;font-size:18px;background:rgba(255,255,255,.06)}
+.brand-mark span,.sidebar-intro h1 span{color:#87c7ff}
+.sidebar-intro{margin-top:36px}
+.eyebrow{font-size:10px;letter-spacing:2px;font-weight:700;margin:0}
+.sidebar-intro .eyebrow{color:#82b9f4}
+.sidebar-intro h1{font-family:Manrope,sans-serif;font-size:30px;line-height:1.15;letter-spacing:-1.2px;margin:13px 0 12px}
+.role{font-size:12px;line-height:1.8;color:#c2d2e9;margin:0}
+.sidebar-divider{height:1px;background:rgba(255,255,255,.14);margin:29px 0 19px}
+.side-nav{display:grid;gap:7px}
+.nav-link{display:flex;align-items:center;gap:14px;padding:11px 13px;border-radius:10px;color:#c0cee2;font-size:12px;font-weight:600;transition:.2s}
+.nav-link:hover,.nav-link.active{background:rgba(127,190,255,.14);color:white}
+.nav-link.active{box-shadow:inset 3px 0 #7bc2ff}
+.nav-icon{font-size:17px;color:#82bfff;width:18px;text-align:center}
+.download-btn{margin-top:30px;background:#dff0ff;color:var(--navy);border-radius:12px;padding:13px 14px;display:flex;align-items:center;gap:12px;transition:.2s}
+.download-btn:hover{transform:translateY(-2px);background:white}
+.download-icon{width:34px;height:34px;display:grid;place-items:center;background:#b6dcff;border-radius:9px;font-size:22px}
+.download-btn strong,.download-btn small{display:block}
+.download-btn strong{font-size:12px}
+.download-btn small{font-size:9px;color:#637d9e;margin-top:2px}
+.sidebar-bottom{margin-top:auto;padding-top:26px;color:#a8bdd9;font-size:10px;line-height:1.7;display:flex;gap:8px;align-items:flex-start}
+.status-dot,.current-label span{width:7px;height:7px;display:inline-block;border-radius:50%;background:#78e0b0;box-shadow:0 0 0 4px rgba(120,224,176,.12);margin-top:6px;flex:none}
+.main-content{margin-left:286px;max-width:1600px}
+.hero{min-height:630px;padding:72px clamp(35px,6vw,94px) 24px;background:linear-gradient(120deg,#fff 0%,#f6fbff 56%,#e6f3ff 100%);position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;width:430px;height:430px;border-radius:50%;background:rgba(170,218,255,.22);right:-180px;top:-200px}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;max-width:1120px;margin:auto}
+.hero-copy{padding:25px 0 45px}
+.blue-eyebrow{color:#4984c8;display:flex;align-items:center;gap:10px}
+.eyebrow-line{height:2px;width:25px;background:#65a8f2}
+.hero h2,.section-heading h2,.closing-banner h2{font-family:Manrope,sans-serif;letter-spacing:-2px}
+.hero h2{font-size:clamp(37px,4.2vw,60px);line-height:1.14;margin:22px 0 19px;color:var(--navy);font-weight:800}
+.hero h2 span{color:#4b8fe8}
+.hero-description{font-size:14px;line-height:1.9;color:#64748b;max-width:535px;margin:0}
+.hero-actions{display:flex;align-items:center;gap:24px;margin-top:28px}
+.primary-btn{background:var(--navy);color:white;border-radius:9px;padding:13px 18px;font-size:12px;font-weight:700;box-shadow:0 8px 20px rgba(11,31,70,.15);transition:.2s}
+.primary-btn:hover{transform:translateY(-2px);background:#173b75}
+.primary-btn span{margin-left:15px;color:#92ceff;font-size:17px}
+.text-btn{font-size:12px;font-weight:700;color:#2c4c77}
+.text-btn span{color:#4b8fe8;margin-left:5px}
+.hero-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:34px}
+.hero-tags span{font-size:10px;color:#527196;border:1px solid #d7e8fa;background:rgba(255,255,255,.68);padding:7px 10px;border-radius:6px}
+.hero-art{position:relative;min-height:410px;display:grid;place-items:center}
+.art-orbit{position:absolute;border:1px solid rgba(84,153,226,.2);border-radius:50%;width:340px;height:340px}
+.orbit-two{width:275px;height:275px;border-style:dashed;transform:rotate(25deg)}
+.art-card{width:min(310px,85%);height:340px;border-radius:19px;background:linear-gradient(145deg,#17376a,#0b1f46);box-shadow:0 30px 65px rgba(21,59,111,.25);padding:22px;color:white;position:relative;z-index:2;overflow:hidden;transform:rotate(3deg)}
+.art-card:after{content:"";position:absolute;width:240px;height:240px;border:1px solid rgba(255,255,255,.08);border-radius:50%;right:-95px;top:40px;box-shadow:0 0 0 24px rgba(255,255,255,.025),0 0 0 50px rgba(255,255,255,.02)}
+.art-card-top,.art-footer{display:flex;justify-content:space-between;align-items:center;font-size:8px;letter-spacing:1.4px;color:#b4d6fa;position:relative;z-index:1}
+.tiny-dot{width:7px;height:7px;border-radius:50%;background:#84d9c1}
+.monogram{font-family:Manrope,sans-serif;font-size:112px;font-weight:800;letter-spacing:-13px;line-height:1.15;margin:42px 0 18px;color:#f4f9ff;position:relative;z-index:1}
+.monogram span{color:#6bb5ff}
+.art-card-line{width:60px;height:3px;border-radius:2px;background:#73baff;position:relative;z-index:1}
+.art-name{font-family:Manrope,sans-serif;font-size:15px;font-weight:700;margin:13px 0 0;position:relative;z-index:1}
+.art-subtitle{font-size:9px;color:#a7c4e8;margin:2px 0;position:relative;z-index:1}
+.art-footer{position:absolute;left:22px;right:22px;bottom:21px;font-size:7px}
+.floating-chip{position:absolute;z-index:3;display:flex;align-items:center;gap:10px;background:white;padding:12px 15px;border-radius:12px;box-shadow:0 14px 35px rgba(25,67,116,.14);font-size:10px;color:#45617f}
+.chip-top{top:54px;right:-4px}.chip-top:first-letter{color:#4c99ef}
+.chip-bottom{bottom:42px;left:-15px;line-height:1.55}
+.chip-symbol{width:30px;height:30px;display:grid;place-items:center;background:#e2f2ff;color:#347bc4;border-radius:8px;font-size:17px}
+.hero-footer{display:flex;justify-content:space-between;max-width:1120px;margin:0 auto;color:#8ca2bb;font-size:9px;letter-spacing:1.3px;position:relative}
+.scroll-cue span{margin-left:12px;color:#4b8fe8;font-size:14px}
+.content-section{padding:75px clamp(35px,6vw,94px);max-width:1300px;margin:auto}
+.section-heading{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:30px}
+.section-kicker{color:#4b8fe8}
+.section-heading h2{font-size:clamp(28px,3vw,38px);line-height:1.2;margin:10px 0 0;color:var(--navy)}
+.section-heading h2 span{color:#4b8fe8}
+.section-number{font-family:Manrope,sans-serif;font-weight:800;font-size:42px;line-height:1;color:#e0edf9}
+.profile-card{display:grid;grid-template-columns:125px 1fr;gap:30px;padding:34px;background:white;border:1px solid #e8f0f9;border-radius:18px;box-shadow:var(--shadow)}
+.profile-icon{width:112px;height:112px;border-radius:20px;background:linear-gradient(145deg,#d9efff,#a9d5ff);display:grid;place-items:center;color:var(--navy);font-family:Manrope,sans-serif;font-size:36px;font-weight:800;letter-spacing:-4px;align-self:start}
+.profile-icon span{color:#4b8fe8}
+.profile-text h3{font-family:Manrope,sans-serif;font-size:19px;margin:0 0 10px;color:var(--navy);letter-spacing:-.5px}
+.profile-text>p{font-size:13px;color:#6c7d93;line-height:1.9;margin:0;max-width:780px}
+.profile-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:25px;padding-top:22px;border-top:1px solid var(--line)}
+.profile-facts>div{display:flex;flex-direction:column;gap:5px}
+.fact-label{font-size:10px;color:#8a9ab0}
+.profile-facts strong{font-size:11px;color:#2d4668}
+.timeline{position:relative;display:grid;gap:22px;padding-left:23px}
+.timeline:before{content:"";position:absolute;left:5px;top:14px;bottom:50px;width:1px;background:#c8e1fb}
+.timeline-item{position:relative}
+.timeline-marker{position:absolute;left:-23px;top:28px;width:12px;height:12px;border-radius:50%;background:#fff;border:3px solid #5b9de7;box-shadow:0 0 0 5px #e8f4ff}
+.experience-card{padding:27px 30px;background:white;border:1px solid #e5eef8;border-radius:15px;box-shadow:0 12px 35px rgba(24,65,119,.055)}
+.experience-top{display:flex;justify-content:space-between;align-items:center}
+.experience-type{font-size:9px;letter-spacing:1.6px;color:#4388d0;font-weight:800}
+.experience-index{font-size:11px;color:#b6c8dc;font-weight:700}
+.experience-card h3{font-family:Manrope,sans-serif;color:var(--navy);font-size:20px;margin:11px 0 0;letter-spacing:-.5px}
+.job-title{font-size:12px;color:#4b8fe8;font-weight:700;margin:2px 0 12px}
+.experience-description{font-size:12px;color:#71819a;line-height:1.9;margin:0;max-width:790px}
+.experience-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.experience-tags span{background:#f0f7ff;color:#6482a5;border-radius:5px;padding:5px 9px;font-size:9px}
+.current-card{border-color:#cde5ff;background:linear-gradient(110deg,#fff,#f8fcff)}
+.current-label{font-size:10px;color:#6d9a8b;display:flex;align-items:center;gap:7px}
+.current-label span{margin:0;width:6px;height:6px}
+.skills-section{background:#edf6ff;max-width:none;padding-left:clamp(35px,6vw,94px);padding-right:clamp(35px,6vw,94px)}
+.skills-section .section-heading,.skills-grid{max-width:1120px;margin-left:auto;margin-right:auto}
+.skills-section .section-heading{margin-bottom:30px}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.skill-panel{background:white;border:1px solid #dfebf8;border-radius:16px;padding:26px;box-shadow:0 10px 30px rgba(24,65,119,.045)}
+.skill-panel-head{display:flex;align-items:center;gap:13px;padding-bottom:20px;border-bottom:1px solid #e9f0f8}
+.skill-panel-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:#e5f3ff;color:#4389d2;font-size:21px}
+.skill-panel-head .eyebrow{font-size:9px;color:#6f9dce;letter-spacing:1.5px}
+.skill-panel-head h3{font-family:Manrope,sans-serif;font-size:16px;color:var(--navy);margin:2px 0 0}
+.skill-list{display:grid;gap:0}
+.skill-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid #f0f4f9;font-size:12px;color:#526982}
+.skill-row:last-child{border:0}
+.skill-check{width:20px;height:20px;border-radius:50%;background:#e2f6ef;color:#3eaa85;display:grid;place-items:center;font-size:11px}
+.tech-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.tech-tags span{border:1px solid #d8eafa;background:#f4f9ff;color:#46698e;padding:8px 10px;border-radius:7px;font-size:10px}
+.skill-note{font-size:10px;color:#8a9ab0;line-height:1.7;margin:23px 0 0}
+.education-card{display:flex;align-items:center;gap:24px;padding:29px 32px;background:white;border:1px solid #e5eef8;border-radius:16px;box-shadow:var(--shadow)}
+.education-emblem{width:76px;height:76px;display:grid;place-items:center;background:var(--navy);color:#fff;border-radius:15px;font-family:Manrope,sans-serif;font-weight:800;font-size:19px;letter-spacing:-1px;flex:none}
+.education-emblem span{color:#84c7ff}
+.education-label{font-size:9px;letter-spacing:1.6px;font-weight:800;color:#4b8fe8}
+.education-details h3{font-family:Manrope,sans-serif;font-size:21px;color:var(--navy);margin:4px 0}
+.education-details p{font-size:12px;color:#73849a;margin:0}
+.education-side-note{margin-left:auto;padding-left:25px;border-left:1px solid var(--line);font-size:11px;line-height:1.8;color:#8495aa}
+.closing-banner{margin:0 clamp(35px,6vw,94px) 35px;padding:36px 38px;background:linear-gradient(120deg,#0b1f46,#17447f);border-radius:18px;color:white;display:flex;align-items:center;justify-content:space-between;gap:20px;position:relative;overflow:hidden}
+.closing-banner .eyebrow{color:#8dcaff;font-size:9px}
+.closing-banner h2{font-size:29px;line-height:1.25;margin:12px 0 0;position:relative;z-index:1}
+.closing-banner h2 span{color:#91ceff}
+.closing-download{position:relative;z-index:2;white-space:nowrap;border-radius:9px;background:#dff0ff;color:#0b1f46;padding:13px 17px;font-size:11px;font-weight:800}
+.closing-download span{margin-left:17px;font-size:16px}
+.closing-decoration{position:absolute;right:24%;font-family:Manrope,sans-serif;font-size:130px;font-weight:800;color:rgba(255,255,255,.035);letter-spacing:-15px}
+.site-footer{padding:0 clamp(35px,6vw,94px) 28px;display:flex;justify-content:space-between;gap:15px;align-items:center;color:#91a1b6;font-size:9px}
+.site-footer b{color:#4b8fe8}.site-footer a{color:#56769b;font-weight:700}
+.menu-toggle{display:none}
+@media(min-width:1500px){.hero{padding-top:90px}.hero-grid{gap:70px}.hero{min-height:690px}}
+@media(max-width:1050px){.sidebar{width:245px;padding:25px 20px}.main-content{margin-left:245px}.hero{padding-left:36px;padding-right:36px}.hero-grid{grid-template-columns:1fr .8fr;gap:10px}.hero-art{transform:scale(.9)}.hero h2{font-size:44px}.content-section{padding-left:36px;padding-right:36px}.skills-section{padding-left:36px;padding-right:36px}.closing-banner{margin-left:36px;margin-right:36px}.site-footer{padding-left:36px;padding-right:36px}}
+@media(max-width:760px){.menu-toggle{display:grid;place-items:center;position:fixed;z-index:40;top:15px;left:15px;width:43px;height:43px;border:0;border-radius:12px;background:var(--navy);color:white;font-size:21px;box-shadow:0 8px 20px rgba(11,31,70,.2)}.sidebar{width:280px;transform:translateX(-105%);transition:transform .28s ease;box-shadow:15px 0 45px rgba(7,24,51,.2);padding-top:75px}.sidebar.open{transform:translateX(0)}.main-content{margin-left:0}.hero{padding:85px 25px 24px;min-height:unset}.hero-grid{grid-template-columns:1fr;gap:0}.hero-copy{padding:10px 0 5px}.hero h2{font-size:clamp(39px,10vw,52px)}.hero-description{font-size:13px}.hero-art{min-height:370px;margin-top:5px;transform:scale(.93)}.hero-footer{font-size:8px}.content-section{padding:58px 23px}.section-heading{margin-bottom:24px}.section-number{font-size:32px}.profile-card{grid-template-columns:1fr;padding:23px;gap:20px}.profile-icon{width:80px;height:80px;font-size:29px}.profile-facts{grid-template-columns:1fr;gap:12px}.profile-facts>div{display:grid;grid-template-columns:110px 1fr;align-items:center}.experience-card{padding:22px 20px}.skills-section{padding:58px 23px}.skills-grid{grid-template-columns:1fr}.education-card{align-items:flex-start;gap:16px;padding:22px;flex-wrap:wrap}.education-emblem{width:60px;height:60px;font-size:16px}.education-details{flex:1;min-width:170px}.education-details h3{font-size:18px}.education-side-note{margin-left:76px;padding-left:0;border:0;border-top:1px solid var(--line);padding-top:12px;width:100%}.closing-banner{margin:0 23px 25px;padding:28px 24px;align-items:flex-start;flex-direction:column}.closing-banner h2{font-size:27px}.closing-download{margin-top:8px}.site-footer{padding:0 23px 25px;flex-wrap:wrap;line-height:1.8}.site-footer span:nth-child(2){order:3;width:100%}}
+@media(max-width:380px){.hero-actions{gap:15px}.primary-btn{padding:12px}.hero-art{transform:scale(.84);margin-left:-10px;margin-right:-10px}.scroll-cue{display:none}.profile-facts>div{grid-template-columns:95px 1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+</style>
+  <script defer>
+const menuToggle = document.getElementById('menuToggle');
+const sidebar = document.getElementById('sidebar');
+const navLinks = document.querySelectorAll('.nav-link');
+
+menuToggle.addEventListener('click', () => {
+  const isOpen = sidebar.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', String(isOpen));
+  menuToggle.setAttribute('aria-label', isOpen ? 'Tutup menu' : 'Buka menu');
+  menuToggle.textContent = isOpen ? '×' : '☰';
+});
+
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.forEach(item => item.classList.remove('active'));
+    link.classList.add('active');
+    sidebar.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Buka menu');
+    menuToggle.textContent = '☰';
+  });
+});
+
+const sections = document.querySelectorAll('main section[id]');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
+      });
+    }
+  });
+}, { rootMargin: '-30% 0px -60% 0px' });
+sections.forEach(section => observer.observe(section));
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+</script>
+</head>
+<body>
+  <button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-expanded="false">☰</button>
+  <div class="page-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand-mark">SR<span>.</span></div>
+      <div class="sidebar-intro">
+        <p class="eyebrow">CURRICULUM VITAE</p>
+        <h1>Sasti Rizki<br><span>Awalia</span></h1>
+        <p class="role">Mahasiswa Sistem Informasi<br>&amp; Pramuniaga</p>
+      </div>
+      <div class="sidebar-divider"></div>
+      <nav class="side-nav" aria-label="Navigasi utama">
+        <a class="nav-link active" href="#beranda"><span class="nav-icon">⌂</span> Beranda</a>
+        <a class="nav-link" href="#profil"><span class="nav-icon">◉</span> Profil Singkat</a>
+        <a class="nav-link" href="#pengalaman"><span class="nav-icon">▤</span> Pengalaman Kerja</a>
+        <a class="nav-link" href="#keahlian"><span class="nav-icon">✧</span> Keahlian</a>
+        <a class="nav-link" href="#pendidikan"><span class="nav-icon">▱</span> Pendidikan</a>
+      </nav>
+      <a class="download-btn" href="public/CV_Sasti_Rizki_Awalia.pdf" download>
+        <span class="download-icon">↓</span>
+        <span><strong>Unduh CV</strong><small>Versi PDF · siap dicetak</small></span>
+      </a>
+      <div class="sidebar-bottom">
+        <span class="status-dot"></span> Terbuka untuk kesempatan berkembang
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <section class="hero" id="beranda">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow blue-eyebrow"><span class="eyebrow-line"></span> HALO, SELAMAT DATANG</p>
+            <h2>Mengenal saya,<br><span>Sasti Rizki Awalia.</span></h2>
+            <p class="hero-description">Pribadi yang teliti, bertanggung jawab, dan senang belajar hal baru. Saya menjalani kuliah Sistem Informasi sambil bekerja, serta terus mengembangkan kemampuan di bidang pelayanan pelanggan dan teknologi informasi.</p>
+            <div class="hero-actions">
+              <a class="primary-btn" href="#profil">Kenali Saya <span>↘</span></a>
+              <a class="text-btn" href="public/CV_Sasti_Rizki_Awalia.pdf" target="_blank" rel="noopener">Lihat CV PDF <span>↗</span></a>
+            </div>
+            <div class="hero-tags">
+              <span>✦ Sistem Informasi</span><span>✦ Customer Service</span><span>✦ Administrasi</span>
+            </div>
+          </div>
+          <div class="hero-art" aria-label="Ilustrasi inisial Sasti Rizki Awalia">
+            <div class="art-orbit orbit-one"></div>
+            <div class="art-orbit orbit-two"></div>
+            <div class="art-card">
+              <div class="art-card-top"><span>PORTOFOLIO PERSONAL</span><span class="tiny-dot"></span></div>
+              <div class="monogram">S<span>R</span></div>
+              <div class="art-card-line"></div>
+              <p class="art-name">Sasti Rizki Awalia</p>
+              <p class="art-subtitle">Curious mind. Thoughtful work.</p>
+              <div class="art-footer"><span>SI STUDENT</span><span>TEGAL · INDONESIA</span></div>
+            </div>
+            <div class="floating-chip chip-top">✦ <span>Teliti &amp; bertanggung jawab</span></div>
+            <div class="floating-chip chip-bottom"><span class="chip-symbol">↗</span><span>Terus belajar,<br><b>terus bertumbuh</b></span></div>
+          </div>
+        </div>
+        <div class="hero-footer"><span>01 / PERSONAL PROFILE</span><span class="scroll-cue">GULIR UNTUK MENJELAJAH <span>↓</span></span></div>
+      </section>
+
+      <section class="content-section profile-section" id="profil">
+        <div class="section-heading">
+          <div><p class="eyebrow section-kicker">01 — TENTANG SAYA</p><h2>Profil <span>Singkat</span></h2></div>
+          <span class="section-number">01</span>
+        </div>
+        <div class="profile-card">
+          <div class="profile-icon">SR<span>.</span></div>
+          <div class="profile-text">
+            <h3>Belajar, bekerja, dan terus berkembang.</h3>
+            <p>Saya adalah mahasiswa semester 5 Program Studi Sistem Informasi di Universitas Bina Sarana Informatika (UBSI) Tegal yang menjalani kuliah sambil bekerja. Saya memiliki pengalaman sebagai pramuniaga melalui kegiatan PKL, magang, dan pekerjaan di toko emas.</p>
+            <div class="profile-facts">
+              <div><span class="fact-label">Fokus studi</span><strong>Sistem Informasi</strong></div>
+              <div><span class="fact-label">Pengalaman</span><strong>Pramuniaga &amp; pelayanan</strong></div>
+              <div><span class="fact-label">Karakter kerja</span><strong>Teliti dan bertanggung jawab</strong></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="pengalaman">
+        <div class="section-heading">
+          <div><p class="eyebrow section-kicker">02 — PERJALANAN PROFESIONAL</p><h2>Pengalaman <span>Kerja</span></h2></div>
+          <span class="section-number">02</span>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-marker"><span></span></div>
+            <div class="experience-card">
+              <div class="experience-top"><span class="experience-type">PKL &amp; MAGANG</span><span class="experience-index">01</span></div>
+              <h3>Mutiara Cahaya</h3>
+              <p class="job-title">Pramuniaga</p>
+              <p class="experience-description">Membantu melayani pelanggan, memberikan informasi produk, menjaga kerapian area penjualan, serta mendukung aktivitas operasional toko.</p>
+              <div class="experience-tags"><span>Pelayanan pelanggan</span><span>Informasi produk</span><span>Operasional toko</span></div>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-marker"><span></span></div>
+            <div class="experience-card current-card">
+              <div class="experience-top"><span class="experience-type">PEKERJAAN SAAT INI</span><span class="current-label"><span></span> Saat ini</span></div>
+              <h3>Toko Emas Hidup Tegal</h3>
+              <p class="job-title">Pramuniaga</p>
+              <p class="experience-description">Melayani pelanggan dengan sopan, membantu pelanggan memperoleh informasi produk emas, menjaga tampilan produk dan area toko, serta bekerja dengan teliti dan bertanggung jawab.</p>
+              <div class="experience-tags"><span>Pelayanan</span><span>Ketelitian</span><span>Komunikasi</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-section skills-section" id="keahlian">
+        <div class="section-heading">
+          <div><p class="eyebrow section-kicker">03 — KEMAMPUAN</p><h2>Keahlian <span>Utama</span></h2></div>
+          <span class="section-number">03</span>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-panel">
+            <div class="skill-panel-head"><span class="skill-panel-icon">✦</span><div><p class="eyebrow">SOFT SKILLS</p><h3>Keahlian Personal</h3></div></div>
+            <div class="skill-list">
+              <div class="skill-row"><span>Pelayanan pelanggan</span><span class="skill-check">✓</span></div>
+              <div class="skill-row"><span>Komunikasi yang baik</span><span class="skill-check">✓</span></div>
+              <div class="skill-row"><span>Ketelitian dan tanggung jawab</span><span class="skill-check">✓</span></div>
+              <div class="skill-row"><span>Kerja sama tim</span><span class="skill-check">✓</span></div>
+            </div>
+          </article>
+          <article class="skill-panel tech-panel">
+            <div class="skill-panel-head"><span class="skill-panel-icon">⌘</span><div><p class="eyebrow">TECHNICAL SKILLS</p><h3>Sistem Informasi</h3></div></div>
+            <div class="tech-tags">
+              <span>Basis data &amp; SQL dasar</span><span>Analisis sistem informasi</span><span>Pemrograman web dasar</span><span>Microsoft Word</span><span>Microsoft PowerPoint</span><span>Pengolahan data dasar</span><span>Alur kerja aplikasi</span>
+            </div>
+            <p class="skill-note">Kemampuan teknis dasar yang terus dikembangkan melalui proses pembelajaran.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-section education-section" id="pendidikan">
+        <div class="section-heading">
+          <div><p class="eyebrow section-kicker">04 — LATAR BELAKANG</p><h2>Riwayat <span>Pendidikan</span></h2></div>
+          <span class="section-number">04</span>
+        </div>
+        <div class="education-card">
+          <div class="education-emblem">EDU<span>.</span></div>
+          <div class="education-details">
+            <span class="education-label">PENDIDIKAN TERAKHIR</span>
+            <h3>SMKN 1 Dukuhturi</h3>
+            <p>Jurusan Bisnis Daring dan Pemasaran</p>
+          </div>
+          <div class="education-side-note">Fondasi dalam dunia<br>bisnis dan pelayanan.</div>
+        </div>
+      </section>
+
+      <section class="closing-banner">
+        <div><p class="eyebrow">LET'S CONNECT THROUGH OPPORTUNITY</p><h2>Siap belajar dan<br><span>memberi kontribusi.</span></h2></div>
+        <a class="closing-download" href="public/CV_Sasti_Rizki_Awalia.pdf" download>Unduh CV PDF <span>↓</span></a>
+        <div class="closing-decoration">SR</div>
+      </section>
+
+      <footer class="site-footer"><span>© <span id="year"></span> Sasti Rizki Awalia</span><span>Dibuat dengan semangat untuk terus bertumbuh <b>✦</b></span><a href="#beranda">Kembali ke atas ↑</a></footer>
+    </main>
+  </div>
+</body>
+</html>
